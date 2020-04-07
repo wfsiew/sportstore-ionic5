@@ -1,0 +1,7 @@
+{
+  "name": "sportstore-ionic5",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
