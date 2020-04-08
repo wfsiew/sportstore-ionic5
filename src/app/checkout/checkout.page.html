@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Check out</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="mform">
+    <ion-list inset="true">
+      <h2>Ship to</h2>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input name="name" formControlName="name"></ion-input>
+      </ion-item>
+
+      <h4>Address</h4>
+      <ion-item>
+        <ion-label position="floating">Line 1</ion-label>
+        <ion-input name="line1" formControlName="line1"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Line 2</ion-label>
+        <ion-input name="line2" formControlName="line2"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Line 3</ion-label>
+        <ion-input name="lien3" formControlName="line3"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">City</ion-label>
+        <ion-input name="city" formControlName="city"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">State</ion-label>
+        <ion-input name="state" formControlName="state"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Zip</ion-label>
+        <ion-input name="zip" formControlName="zip"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Country</ion-label>
+        <ion-input name="country" formControlName="country"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Gift wrap these items</ion-label>
+        <ion-checkbox slot="start" name="giftWrap" formControlName="giftWrap"></ion-checkbox>
+      </ion-item>
+    </ion-list>
+
+    <div padding>
+      <ion-button expand="block" (click)="onSubmit()" [disabled]="mform.invalid">
+        Complete Order
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

@@ -1,0 +1,11 @@
+<ion-item-group>
+  <ion-item lines="none">
+    <ion-button (click)="onMinus()">
+      <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
+    </ion-button>
+    <ion-input type="text" readonly="true" [value]="quantity" class="text-center"></ion-input>
+    <ion-button (click)="onAdd()">
+      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-item-group>

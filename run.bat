@@ -1,0 +1,1 @@
+ionic serve --port 5000
