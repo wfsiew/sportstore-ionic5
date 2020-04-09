@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
 import { Location } from '@angular/common';
+import { AlertController } from '@ionic/angular';
 import { MessageService } from 'src/app/services/message.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { Utils } from 'src/app/shared/helpers/utils';
 
 @Component({
   selector: 'app-checkout',
@@ -16,6 +18,7 @@ export class CheckoutPage implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loc: Location,
+    private alertCtrl: AlertController,
     private msService: MessageService,
     private storageService: StorageService
   ) {
@@ -64,6 +67,11 @@ export class CheckoutPage implements OnInit {
         this.msService.send('cart:updated', {});
         this.loc.back();
       });
+    },
+    (error) => {
+      Utils.handleError(error, this.alertCtrl, async () => {
+        await this.onSubmit();
+      }).then(() => {});
     });
   }
 }

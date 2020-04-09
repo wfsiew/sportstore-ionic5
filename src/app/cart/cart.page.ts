@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { AlertController } from '@ionic/angular';
 import { MessageService } from 'src/app/services/message.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { QuantityInput } from './quantity-input/models';
+import { Utils } from 'src/app/shared/helpers/utils';
 
 @Component({
   selector: 'app-cart',
@@ -18,6 +20,7 @@ export class CartPage implements OnInit {
   constructor(
     private router: Router,
     private loc: Location,
+    private alertCtrl: AlertController,
     private msService: MessageService,
     private storageService: StorageService
   ) {

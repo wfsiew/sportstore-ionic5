@@ -1,12 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController, ToastController } from '@ionic/angular';
+import { LoadingController, ToastController, AlertController } from '@ionic/angular';
 import { IonInfiniteScroll, IonVirtualScroll, PopoverController } from '@ionic/angular';
 import { ProductService } from 'src/app/services/product.service';
 import { MessageService } from 'src/app/services/message.service';
 import { StorageService } from 'src/app/services/storage.service';
 import _ from 'lodash';
 import { MenuComponent } from './menu/menu.component';
+import { Utils } from 'src/app/shared/helpers/utils';
 
 @Component({
   selector: 'app-home',
@@ -27,6 +28,7 @@ export class HomePage implements OnInit {
     private router: Router,
     private popoverCtrl: PopoverController,
     private toastCtrl: ToastController,
+    private alertCtrl: AlertController,
     private productService: ProductService,
     private msService: MessageService,
     private storageService: StorageService
@@ -71,6 +73,11 @@ export class HomePage implements OnInit {
 
       this.virtualScroll.checkEnd();
       this.infiniteScroll.complete();
+    },
+    (error) => {
+      Utils.handleError(error, this.alertCtrl, () => {
+        this.load(null);
+      }).then(() => {});
     });
   }
 
